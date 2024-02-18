@@ -24,13 +24,14 @@ require(ggpubr)
 #https://academic.oup.com/rfs/article/28/3/650/1574802
 #http://web.mit.edu/adrienv/www/Research.html
 
+current_path <- getwd()
 
 ### Load and format the data ###
-ff_factors_monthly_dt <- data.frame(read.csv("/Users/sergeylitvinenko/Downloads/2_WU/4_PMP/1_Technical meetings/TM3/Relevant data/FF_Data_Factors_monthly.CSV", header = TRUE))
-ff_factors_daily_dt <- data.frame(read.csv("/Users/sergeylitvinenko/Downloads/2_WU/4_PMP/1_Technical meetings/TM3/Relevant data/FF_Data_Factors_daily.CSV", header = TRUE))
+ff_factors_monthly_dt <- data.frame(read.csv(paste0(current_path, "/FF_Data_Factors_monthly.CSV"), header = TRUE))
+ff_factors_daily_dt <- data.frame(read.csv(paste0(current_path, "/FF_Data_Factors_daily.CSV"), header = TRUE))
 
-mom_monthly_dt <- data.frame(read.csv("/Users/sergeylitvinenko/Downloads/2_WU/4_PMP/1_Technical meetings/TM3/Relevant data/Momentum_Factor_monthly.CSV", header = TRUE))
-mom_daily_dt <- data.frame(read.csv("/Users/sergeylitvinenko/Downloads/2_WU/4_PMP/1_Technical meetings/TM3/Relevant data/Momentum_Factor_daily.CSV", header = TRUE))
+mom_monthly_dt <- data.frame(read.csv(paste0(current_path,"/Momentum_Factor_monthly.CSV"), header = TRUE))
+mom_daily_dt <- data.frame(read.csv(paste0(current_path,"/Momentum_Factor_daily.CSV"), header = TRUE))
 
 ff_factors_monthly_dt$Date <- as.Date(paste0(ff_factors_monthly_dt$Date, '01'), format = '%Y%m%d')
 ff_factors_daily_dt$Date <- as.Date(ff_factors_daily_dt$Date, format = '%Y%m%d')
